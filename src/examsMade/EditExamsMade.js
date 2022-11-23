@@ -10,14 +10,7 @@ export default function EditExamsMade() {
   
   let navigate = useNavigate();
 
-  useEffect(() => {
-    loadExamsMade();
-    loadExams();
-    loadEmployees();
-  }, []);
-
   const { examsMade_id } = useParams();
-
   const [exam, setExam] = useState([]);
   const [employee, setEmployee] = useState([]);
   const [examsMade, setExamsMade] = useState({
@@ -32,6 +25,14 @@ export default function EditExamsMade() {
     examsMade_date: "",
   });
 
+
+  useEffect(() => {
+    loadExamsMade();
+    loadExams();
+    loadEmployees();
+  }, []);
+
+  
   const loadExams = async () => {
     const result = await axios.get("http://localhost:8080/allexams");
     setExam(result.data);
@@ -47,10 +48,8 @@ export default function EditExamsMade() {
     setExamsMade(result.data);
    };
 
-
-
   const onInputChangeExamId = (e) => {
-    let exams = exam.find(exam => exam.exam_name == e); 
+    let exams = exam.find(exam => exam.exam_name === e); 
     setExamsMade({
       ...examsMade,
       exam: {
@@ -58,12 +57,10 @@ export default function EditExamsMade() {
         exam_name: exams.exam_name
       }
     });
-    console.log(examsMade)
   };
 
   const onInputChangeEmployeeId = (e) => {
-    console.log(e);
-    let employees = employee.find(employee => employee.employee_name == e); 
+    let employees = employee.find(employee => employee.employee_name === e); 
     setExamsMade({
       ...examsMade,
       employee: {

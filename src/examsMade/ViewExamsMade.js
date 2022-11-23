@@ -11,12 +11,8 @@ export default function ViewExamsMade() {
     let day = date.getDate().toString().padStart(2, '0');
     return day + '/' + month + '/' + year;
 }
-  useEffect(() => {
-    loadExamsMade();
-  }, []);
 
-  const { examsMade_id } = useParams();
-
+const { examsMade_id } = useParams();
   const [examsMade, setExamsMade] = useState({
     employee: {
       employee_id: null,
@@ -29,15 +25,15 @@ export default function ViewExamsMade() {
     examsMade_date: "",
   });
 
+  useEffect(() => {
+    loadExamsMade();
+  }, []);
+
   const loadExamsMade = async () => {
     const result = await axios.get(`http://localhost:8080/examsmade/${examsMade_id}`);
     setExamsMade(result.data);
    };
 
-   
-
-
-  
   return (
     <div className="container">
       <div className="row">

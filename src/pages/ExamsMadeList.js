@@ -27,9 +27,7 @@ export default function ExamsMade() {
     await axios.delete(`http://localhost:8080/examsMade/${examsMade_id}`);
     loadExamsMade();
   };
-
   
-
   return (
     <div className="container">
       <div className="py-4 text-center">

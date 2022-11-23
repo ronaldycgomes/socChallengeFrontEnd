@@ -35,7 +35,7 @@ export default function Indicators() {
       }
       hash[item1.exam.exam_name] = unfilteredList.filter(
         (item2) =>
-          item2.exam.exam_id == item1.exam.exam_id &&
+          item2.exam.exam_id === item1.exam.exam_id &&
           item2.examsMade_date >= dateParams.initialDate &&
           item2.examsMade_date <= dateParams.finalDate
       ).length;

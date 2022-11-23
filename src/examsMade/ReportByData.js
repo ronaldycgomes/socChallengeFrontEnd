@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-widgets/DatePicker";
 
 export default function ReportByData() {
+  
   const [unfilteredList, setUnfilteredList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [dateParams, setDateParams] = useState({
@@ -42,8 +43,6 @@ export default function ReportByData() {
         element.examsMade_date <= dateParams.finalDate
     ));
   };
-
-  
 
   return (
     <div className="container">

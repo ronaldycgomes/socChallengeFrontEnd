@@ -6,8 +6,6 @@ import { Link, useParams } from "react-router-dom";
 export default function ExamList() {
   const [exams, setExams] = useState([]);
 
-  const { exam_id } = useParams();
-
   useEffect(() => {
     loadExams();
   }, []);

@@ -4,9 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function EmployeeList() {
   const [employee, setEmployees] = useState([]);
-
-  const { employee_id } = useParams();
-
+  
   useEffect(() => {
     loadEmployees();
   }, []);

@@ -39,7 +39,6 @@ function App() {
           <Route exact path="/viewExamsMade/:examsMade_id" element={<ViewExamsMade />} />
           <Route exact path="/reportbydata" element={<ReportByData/>} />
           <Route exact path="/indicators" element={<Indicators/>} />
-
           <Route
             exact
             path="/editEmployee/:employee_id"
