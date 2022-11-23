@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "../layout/Navbar";
+
 
 export default function ExamList() {
   const [exams, setExams] = useState([]);
@@ -18,13 +18,20 @@ export default function ExamList() {
   };
 
   const deleteExam = async (exam_id) => {
-    await axios.delete(`http://localhost:8080/exam/${exam_id}`);
-    loadExams();
+    try {
+      await axios.delete(`http://localhost:8080/exam/${exam_id}`);
+      loadExams();
+    } catch (error) {
+      alert(
+        "Esse exame já foi realizado por um funcionário, portanto não é possível executar a deleção."
+      );
+    }
   };
 
   return (
     <div className="container">
       <div className="py-4 text-center">
+        <h1 className="text-center mb-5">Exames</h1>
         <table className="table border shadow">
           <thead>
             <tr>

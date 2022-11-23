@@ -24,6 +24,7 @@ export default function EmployeeList() {
   return (
     <div className="container">
       <div className="py-4 text-center">
+      <h1 className="text-center mb-5">Funcionários</h1>
         <table className="table border shadow">
           <thead>
             <tr>
