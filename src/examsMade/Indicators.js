@@ -33,6 +33,9 @@ export default function Indicators() {
       if (hash[item1.exam.exam_name] != null) {
         continue;
       }
+      if (Object.entries(hash).length >= 5) {
+        break;
+      }
       hash[item1.exam.exam_name] = unfilteredList.filter(
         (item2) =>
           item2.exam.exam_id === item1.exam.exam_id &&
@@ -40,8 +43,7 @@ export default function Indicators() {
           item2.examsMade_date <= dateParams.finalDate
       ).length;
     }
-    let sorted = Object.entries(hash)
-      .sort((a, b) => b[1] - a[1]);
+    let sorted = Object.entries(hash).sort((a, b) => b[1] - a[1]);
     setFilteredList(sorted);
   };
 
@@ -88,9 +90,7 @@ export default function Indicators() {
           {filteredList.map((filterList) => (
             <tr>
               <td scope="row">
-                {`${filterList[0]} foi realizado ${
-                  filterList[1]
-                } vezes`}
+                {`${filterList[0]} foi realizado ${filterList[1]} vezes`}
               </td>
             </tr>
           ))}
